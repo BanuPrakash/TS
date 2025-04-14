@@ -34,16 +34,19 @@ Contents for Day 1:
 * Generic Functions
 
 
+* Index Signature
+* keyof 
+
 * Template literal types build on string literal types, and have the ability to expand into many strings via unions.
 
 
 * Branded Types for validation, type specificity and preventing accedental mixing
+* Mapped Type
+
 * Conditional Types
 
 * interfaces and classes.
 
-* Index Signature
-* keyof 
 
 ```
 
@@ -92,6 +95,7 @@ JEST / Jasmine / Mocha / vitest for Unit testing
 
 using global variables in typescript
 
+```
 npm i jquery
 npm i vitest
 
@@ -100,3 +104,75 @@ npm i jest @types/jest
 $("<div />)
 
 "types": ["jQuery" , "vitest/globals"],  
+
+```
+
+basic types:
+* string
+* number
+* boolean
+* RegExp
+* function
+* any
+* unknown
+* undefined
+* null
+
+any or unknown can be used where we don't know in advance the type of data.
+
+let result:any = makeApiCall(); // makeApiCall is a JS function
+
+* void type
+* void operator ==> evalutes an expression to undefined
+
+let data; // undefined
+
+let response = null;
+
+npm i @types/node
+
+=======
+
+Type Assertions and Type Predicates
+
+// strict
+
+```
+let product  = {
+  "name" : "A",
+  "price" : 5555
+  update: function(d) {
+    this.price = d;
+  }
+}
+
+product.update(5211); // works
+let ref = product.update; //
+ref(9999);
+
+// strict is false, --> updates global object's price
+``
+
+Union Type:
+
+let data:string | number = "Hello";
+
+data = 100;
+
+=====================================
+
+Generic Functions <T>
+* HOF: High order functions:
+* function which returns a function
+* function which accepts a function
+
+filter(predicateFn)
+map(transformFn)
+reduce(aggregateFn)
+forEach(consumerFn)
+
+https://rxmarbles.com/
+
+ts-node --> REPL
+
+npx ts-node hof1.ts
