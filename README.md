@@ -176,3 +176,69 @@ https://rxmarbles.com/
 ts-node --> REPL
 
 npx ts-node hof1.ts
+
+React.memo()
+
+=============
+
+Complex types:
+* type
+* interface
+* class 
+
+type --> structure of object
+
+```
+type Product = {
+  "name": strring,
+  "price" : number,
+  "category"?: string
+}
+
+function addProduct(p: Product) {
+
+}
+
+addProduct({"name": "iPhone", "price": 89000.00});
+
+```
+
+type intersection [&]
+
+```
+type User = {
+  "name": string,
+  "email": string
+}
+
+type Admin = User & {
+  "role": string
+}
+
+```
+type Union [ | ]
+
+```
+type Address = string | string[];
+
+let address:Address = "5 M G Road";
+address: ["1 Main Road", "8 HR Road"];
+
+```
+
+Branded Type:
+* Validation
+* Avoid accedental mixing of types
+
+
+Template literal types build on string literal types, and have the ability to expand into many strings via unions.
+
+JavaScript template string
+
+let data = `
+  <div class="card">
+      <div class="title">
+      ${product.title}
+    </div>
+  </div>
+`

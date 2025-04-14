@@ -1,4 +1,4 @@
-import { filter } from './lib';
+import { filter, map, memo } from './lib';
 
 let products = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -23,3 +23,21 @@ let names: string[] = map(products, (p) => p.name);
 // Apple, DragonFruit
 let doubles: number[] = map(nos, (no: number) => no * 2);
 // 12, 2, 10,
+
+function fibanocci(no:number): number {
+    if(no == 0 || no == 1){
+        return no;
+    } else {
+        return fibanocci(no -1) + fibanocci(no -2);
+    }
+}
+
+let memoFib = memo(fibanocci); 
+
+
+console.time("first");
+    console.log(memoFib(40));
+console.timeEnd("first");
+console.time("sec");
+    console.log(memoFib(40));
+console.timeEnd("sec");
