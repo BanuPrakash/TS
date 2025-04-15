@@ -442,5 +442,66 @@ Approach 2: by Angular
 })
 class ProductCard  {
   product:Product;
-  
+
 }
+
+
+@Observable
+class ProductState {
+
+}
+```
+
+======
+
+"experimentalDecorators": true, 
+
+Class Decorator functions: should take constructor as argument
+
+function Component(target:any) {
+  target.prototype.template = `<div>Hello</div>`
+}
+
+@Component
+public class Product {
+
+}
+
+let product = new Product();
+
+product['template']
+
+Property Decorator: Field Decorator
+function (target:any, propertyKey:string) {}
+
+Method level decorator
+function (target:any, methodName: string, descriptor?:PropertyDescriptor)
+
+============================
+
+Simple Typescript based react application to use hooks.
+
+Existing application:
+npm i typescript
+tsc --init
+
+Using JS in TS.
+
+changing jsx to "tsx" will fail because of type definitions
+
+typings.d.ts
+declare module React {
+  createElement(arg:any) => JSX
+}
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+```
+npm i react 
+
+npm i @types/react
+```
+
+yarn create react-app samplereact --template typescript
+
+npm i axios @types/axios bootstrap react-bootstrap react-router-dom
