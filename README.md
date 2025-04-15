@@ -272,6 +272,7 @@ let ourTuple: [number, boolean, string];
 ourTuple = [5, false, 'Coding God was here'];
 
 ```
+
   const React = (
       let state: number;
       function useState(initialValue:number): [number, (data:number) => void] {
@@ -340,3 +341,106 @@ class Tv extends Product();
 
 Mapped Type
 * Mapped Type: generic type using union of keys [keyof] to create a type
+
+===========
+
+Record Type
+Constructs an object type whose property keys are Keys and whose property values are Type. 
+This utility can be used to map the properties of a type to another type.
+
+All keys are required
+
+```
+  type Streams = "Java" | "React"
+
+  type User = {
+    "id": number,
+    "name": string
+  }
+
+  let registrations:Record<Streams, User[]> = {
+      "Java": [
+        {id: 1, "name": "A"}, {id:2, "name": "B"}
+      ],
+      "React": [
+         {id: 23, "name": "E"}, {id:21, "name": "AB"}
+      ]
+
+  } 
+
+  type RegType = {
+    [key in Streams]: User[]
+  }
+```
+interfaces and classes
+
+interfaces can be used instead of type to declare the shape of object.
+interfaces are specific for object types
+
+type MyType  = number;
+
+type can be used to extract a type from object
+
+```
+  let product = {
+      "id": 44,
+      "name": "Mac",
+      "supplier": {
+        "name": "Apple",
+        "place" : "Redmond"
+      }
+  }
+
+type Supplier = typeof product.supplier
+
+  interface Product {
+    "id": number,
+    "name": string
+  }
+
+```
+
+interfaces can be used for realization relationship [ contract]
+
+```
+https://github.com/chentsulin/awesome-react-renderer
+  interface Renderer {
+    render(): JSX
+  }
+
+  class ReactDOM implements Renderer {
+    //
+    render() {
+
+    }
+  }
+
+  class ReactTv implements Renderer {
+    // 
+    render() {
+
+    }
+  }
+```
+type NewType<T> = T extends Comparable ? "A": "B"
+
+==========================
+
+Decorators: helps adding metadata to class type
+
+Approach 1: by React
+
+// Specialization 
+class ProductCard extends Component {
+
+}
+
+Approach 2: by Angular
+
+@Component({
+  "template": `<div> ${this.product.name}</div>` 
+})
+class ProductCard  {
+  product:Product;
+  
+}
