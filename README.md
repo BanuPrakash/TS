@@ -242,3 +242,101 @@ let data = `
     </div>
   </div>
 `
+Day 2:
+```
+* tuple
+* record type
+
+* Recursive Type
+* Extracting Type
+* Conditional Types:
+type ConditionalType = SomeType extends OtherType ? TrueType : FalseType
+* infer 
+* Mapped Type: generic type using union of keys [keyof] to create a type
+
+
+* interface and class
+* using JS in TS
+* Decorators
+* webpack
+* React typesript
+```
+
+Day 2:
+Tuple types.
+A tuple is a typed array with a pre-defined length and types for each index
+
+let ourTuple: [number, boolean, string];
+
+// initialize correctly
+ourTuple = [5, false, 'Coding God was here'];
+
+```
+  const React = (
+      let state: number;
+      function useState(initialValue:number): [number, (data:number) => void] {
+          state = state | initialValue;
+
+          setState(data) {
+            state = data;
+          }
+
+          return [state, setState];
+      }
+      function render(component) {
+
+      }
+      return {
+        useState,
+        render
+      }
+  )(); //IIFE
+
+function App() {
+  let [state, useState] = React.useState();
+}
+
+```
+
+Recursive Type:
+
+```
+let data:[][] = [[2,3,5],  [5,6,1]];
+
+type NumberArray = number [] | NumberArray[]
+
+let data:NumberArray = [[2,3,5],  [5,6,1]];
+data = [[[4,55,1]]]
+```
+
+Conditional Type:
+
+type ConditionalType = SomeType extends OtherType ? TrueType : FalseType
+
+used along with "infer" to deduce a new type
+
+```
+class MyOwn {
+
+}
+class Rectangle<T extends Number, MyOwn> {
+  T width;
+  T breadth;
+}
+
+new Rectangle("A", "B"); // valid
+new Rectangle(4,1);
+new Rectangle(4.1, 25.11);
+new Rectangle(new MyOwn(4), new MyOwn(55)); // valid
+
+T extends {}
+
+T extends Product
+
+class Product {}
+class Mobile extends Product {} // inheritance
+class Tv extends Product();
+```
+
+Mapped Type
+* Mapped Type: generic type using union of keys [keyof] to create a type

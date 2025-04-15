@@ -14,4 +14,4 @@ function calculateDistance(mtrs:Metric) {
     // some stuff   
 }
 
-calculateDistance(tenKms);
+// calculateDistance(tenKms); // fails

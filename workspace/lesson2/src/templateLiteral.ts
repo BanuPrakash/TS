@@ -22,5 +22,6 @@ type Box = {
 
 let myCSS: Box = {
     "margin-bottom": "10px",
-    "padding-bottom" : "10rem"
+    "padding-bottom" : "10rem",
+    
 }
